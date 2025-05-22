@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import { GlobalStateProvider } from "./GlobalState";
+import { GlobalStateProvider } from "./context/GlobalState";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import TodoPage from "./pages/TodoPage";
@@ -9,15 +9,6 @@ function App() {
   return (
     <GlobalStateProvider>
       <BrowserRouter>
-        <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
-          <Link to="/" style={{ marginRight: "1rem" }}>
-            Home
-          </Link>
-          <Link to="/todo" style={{ marginRight: "1rem" }}>
-            Todo
-          </Link>
-          <Link to="/about">About</Link>
-        </nav>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

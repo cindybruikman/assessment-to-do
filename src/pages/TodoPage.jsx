@@ -1,53 +1,38 @@
-import { useGlobalState } from "../GlobalState";
-import { GlobalState } from "../GlobalState";
-import { useState } from "react";
+import React from 'react';
+import { useGlobalState } from '../GlobalState'; // pas pad aan indien nodig
+import AddTodoForm from '../components/AddTodoForm';
+import TodoItem from '../components/TodoItem';
+import { ListChecks } from 'lucide-react';
 
-export default function TodoPage() {
+const TodoPage = () => {
   const { todos = [] } = useGlobalState();
-  const [input, setInput] = useState("");
-
-  const addTodo = () => {
-    if (!input.trim()) return;
-    GlobalState.set({
-      todos: [...todos, { id: Date.now(), text: input, done: false }],
-    });
-    setInput("");
-  };
-
-  const toggleTodo = (id) => {
-    GlobalState.set({
-      todos: todos.map((t) => (t.id === id ? { ...t, done: !t.done } : t)),
-    });
-  };
-
-  const deleteTodo = (id) => {
-    GlobalState.set({
-      todos: todos.filter((t) => t.id !== id),
-    });
-  };
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h1>TODO List</h1>
-      <input
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Nieuwe taak..."
-      />
-      <button onClick={addTodo}>Toevoegen</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.done}
-              onChange={() => toggleTodo(todo.id)}
-            />
-            {todo.text}
-            <button onClick={() => deleteTodo(todo.id)}>Verwijder</button>
-          </li>
-        ))}
-      </ul>
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-2xl mx-auto">
+        <div className="flex items-center justify-center mb-8">
+          <ListChecks className="text-purple-600 mr-2" size={28} />
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">My Tasks</h1>
+        </div>
+
+        <AddTodoForm />
+
+        <div className="bg-white rounded-lg shadow">
+          {todos.length === 0 ? (
+            <div className="p-8 text-center text-gray-500">
+              <p>You don't have any tasks yet. Add one to get started!</p>
+            </div>
+          ) : (
+            <div>
+              {todos.map(todo => (
+                <TodoItem key={todo.id} todo={todo} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default TodoPage;
