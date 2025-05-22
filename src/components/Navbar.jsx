@@ -12,7 +12,10 @@ const Navbar = () => {
     <nav className="shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link to="/" className="text-xl font-black text-green-500 text-transform: uppercase">
+          <Link
+            to="/"
+            className="text-xl font-black text-green-500 text-transform: uppercase"
+          >
             To do
           </Link>
 
@@ -30,7 +33,7 @@ const Navbar = () => {
             <Link
               to="/todo"
               className={`transition-all duration-200 ${
-                isActive("/todos")
+                isActive("/todo")
                   ? "text-green-700 font-medium"
                   : "text-white-600 hover:text-green-600"
               }`}
