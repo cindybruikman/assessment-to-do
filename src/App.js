@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { GlobalStateProvider } from "./GlobalState";
+import HomePage from "./pages/HomePage";
+import TodoPage from "./pages/TodoPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalStateProvider>
+      <BrowserRouter>
+        <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
+          <Link to="/" style={{ marginRight: "1rem" }}>
+            Home
+          </Link>
+          <Link to="/todo" style={{ marginRight: "1rem" }}>
+            Todo
+          </Link>
+          <Link to="/about">About</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/todo" element={<TodoPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </BrowserRouter>
+    </GlobalStateProvider>
   );
 }
 
