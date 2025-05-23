@@ -32,11 +32,11 @@ const AddTodoForm = () => {
           placeholder="Add a new task..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="flex-1 p-3 border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="flex-1 p-3 border border-gray-700 rounded-l-full focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-black"
         />
         <button
           type="submit"
-          className="bg-green-600 hover:bg-green-700 text-white p-3 rounded-r-full transition-colors duration-200"
+          className="bg-green-600 hover:bg-green-700 text-white p-3 border border-green rounded-r-full transition-colors duration-200"
         >
           Add
         </button>

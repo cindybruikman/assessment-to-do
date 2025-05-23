@@ -87,7 +87,7 @@ const TodoItem = ({ todo }) => {
         ) : (
           <span
             className={`flex-1 truncate ${
-              todo.completed ? "text-gray-400 line-through" : "text-gray-800"
+              todo.completed ? "text-white-400 line-through" : "text-white-800"
             }`}
           >
             {todo.text}

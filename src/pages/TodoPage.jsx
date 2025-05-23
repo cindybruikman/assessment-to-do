@@ -17,9 +17,9 @@ const TodoPage = () => {
 
         <AddTodoForm />
 
-        <div className="bg-white rounded-lg shadow">
+        <div className="rounded-lg shadow">
           {todos.length === 0 ? (
-            <div className="p-8 text-center text-gray-500">
+            <div className="p-8 text-center text-white">
               <p>You don't have any tasks yet. Add one to get started!</p>
             </div>
           ) : (
