@@ -4,7 +4,7 @@ import { Check, Trash2, Edit2 } from "lucide-react";
 
 const TodoItem = ({ todo }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [editValue, setEditValue] = useState(todo.text);
+  const [editValue, setEditValue] = useState(todo?.text || "");
   const inputRef = useRef(null);
 
   const { todos = [] } = useGlobalState();
@@ -53,8 +53,8 @@ const TodoItem = ({ todo }) => {
   return (
     <div
       className={`group flex items-center justify-between p-4 border-b border-gray-100 
-        transition-all duration-200 hover:bg-gray-50 hover:text-black ${
-          todo.completed ? "bg-green-750" : ""
+        transition-all duration-200 hover:bg-green-950 ${
+          todo.completed ? "bg-green-70" : ""
         }`}
     >
       <div className="flex items-center flex-1 min-w-0">
@@ -81,7 +81,7 @@ const TodoItem = ({ todo }) => {
             onChange={(e) => setEditValue(e.target.value)}
             onBlur={handleSave}
             onKeyDown={handleKeyDown}
-            className="flex-1 p-1 border border-green-300 rounded focus:outline-none focus:ring-1 focus:ring-green-500"
+            className="flex-1 p-1 border border-green-300 bg-gray-900 text-white rounded focus:outline-none focus:ring-1 focus:ring-green-500"
           />
         ) : (
           <span

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useGlobalState } from '../context/GlobalState'; 
 import AddTodoForm from '../components/AddTodoForm';
 import TodoItem from '../components/TodoItem';
@@ -12,7 +11,7 @@ const TodoPage = () => {
       <div className="max-w-2xl mx-auto">
         <div className="flex items-center justify-center mb-8">
           <ListChecks className="text-green-600 mr-2" size={28} />
-          <h1 className="text-2xl md:text-3xl font-bold text-white-800">My Tasks</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-100">My Tasks</h1>
         </div>
 
         <AddTodoForm />
@@ -20,7 +19,7 @@ const TodoPage = () => {
         <div className="rounded-lg shadow">
           {todos.length === 0 ? (
             <div className="p-8 text-center text-white">
-              <p>You don't have any tasks yet. Add one to get started!</p>
+              <p>No tasks yet. Add your first one to get started.</p>
             </div>
           ) : (
             <div>
