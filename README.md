@@ -39,7 +39,7 @@ npm install
 3. **Run the app**
 
 ```bash
-npm run dev
+npm start
 ```
 
 > If you're using Vite, this will launch the app at [http://localhost:5173](http://localhost:5173)
