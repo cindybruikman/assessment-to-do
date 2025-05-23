@@ -7,6 +7,8 @@
 A clean and minimalistic to-do list app built with React and Tailwind CSS.  
 This project was created as part of an assessment and demonstrates global state management, user interactions, and a responsive UI.
 
+Live demo: https://assessment-to-do.netlify.app/
+
 ![Screenshot](./public/img/screenshot.png)
 
 ---
