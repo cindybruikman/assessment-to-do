@@ -54,7 +54,7 @@ const TodoItem = ({ todo }) => {
     <div
       className={`group flex items-center justify-between p-4 border-b border-gray-100 
         transition-all duration-200 hover:bg-green-950 ${
-          todo.completed ? "bg-green-70" : ""
+          todo.completed ? "bg-green-900" : ""
         }`}
     >
       <div className="flex items-center flex-1 min-w-0">
@@ -86,7 +86,7 @@ const TodoItem = ({ todo }) => {
         ) : (
           <span
             className={`flex-1 truncate ${
-              todo.completed ? "text-white-400 line-through" : "text-white-800"
+              todo.completed ? "text-white line-through" : "text-white"
             }`}
           >
             {todo.text}
