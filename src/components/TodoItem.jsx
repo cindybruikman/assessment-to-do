@@ -7,8 +7,7 @@ const TodoItem = ({ todo }) => {
   const [editValue, setEditValue] = useState(todo.text);
   const inputRef = useRef(null);
 
-  const { todos = [] } = useGlobalState(); 
-
+  const { todos = [] } = useGlobalState();
 
   useEffect(() => {
     if (isEditing && inputRef.current) {
@@ -54,8 +53,8 @@ const TodoItem = ({ todo }) => {
   return (
     <div
       className={`group flex items-center justify-between p-4 border-b border-gray-100 
-        transition-all duration-200 hover:bg-gray-50 ${
-          todo.completed ? "bg-gray-50" : ""
+        transition-all duration-200 hover:bg-gray-50 hover:text-black ${
+          todo.completed ? "bg-green-750" : ""
         }`}
     >
       <div className="flex items-center flex-1 min-w-0">
